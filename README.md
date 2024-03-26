@@ -2,19 +2,14 @@
  
 ## Estructura del microservicio 
 
+![MICROSERICE](https://raw.githubusercontent.com/jhamisruiz/motorlinkparent/main/assets/image/app.PNG)
 
-
-```
-    ![MICROSERICE](https://raw.githubusercontent.com/jhamisruiz/motorlinkparent/main/assets/image/app.PNG)
-```
 
 ## Driagrama de base de datos con Mysql
 
 
 
-```
-    ![Diagrama DB](assets/images/ddb.png)
-```
+![Diagrama DB](assets/images/ddb.png)
 
 # Iniciar microservicio
 
