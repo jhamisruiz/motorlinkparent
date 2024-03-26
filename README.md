@@ -9,7 +9,7 @@
 
 
 
-![Diagrama DB](assets/images/ddb.png)
+![Diagrama DB](https://raw.githubusercontent.com/jhamisruiz/motorlinkparent/main/assets/image/ddb.png)
 
 # Iniciar microservicio
 
