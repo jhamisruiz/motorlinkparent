@@ -5,7 +5,7 @@
 
 
 ```
-    ![MICROSERICE](utils/assets/images/app.png)
+    ![MICROSERICE](assets/images/app.png)
 ```
 
 ## Driagrama de base de datos con Mysql
@@ -13,7 +13,7 @@
 
 
 ```
-    ![Diagrama DB](utils/assets/images/ddb.png)
+    ![Diagrama DB](assets/images/ddb.png)
 ```
 
 # Iniciar microservicio
