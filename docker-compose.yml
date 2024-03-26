@@ -1,0 +1,106 @@
+#see for java tunning https://docs.oracle.com/cd/E15523_01/web.1111/e13814/jvm_tuning.htm#PERFM161
+version: '3.8'
+
+services:
+
+  #Mysql y PhpMyAdmin
+  mariadb:
+    image: mariadb:jammy
+    container_name: mariadb_database
+    restart: always
+    environment:
+      MARIADB_USER: pandora
+      MARIADB_PASSWORD: pandora
+      MARIADB_ROOT_PASSWORD: root-secret-password
+      MARIADB_DATABASE: app_service
+    volumes:
+      - v-mariadb:/var/lib/mysql
+    ports:
+      - "5032:3306"
+    networks:
+      - nt-mariadb-db
+
+  phpMyadmin:
+    depends_on:
+      - mariadb
+    image: phpmyadmin:5.2.1-apache
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_ARBITRARY: 1
+    ports:
+      - "8085:80"
+    networks:
+      - nt-mariadb-db
+
+  #Domain Services
+  cliente:
+    container_name: bd-cliente
+    image: motorlink/microservice-docker-cliente:0.0.1-SNAPSHOT   
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+    depends_on:
+      - mariadb
+    ports:
+      - 9090:9090
+    networks:
+      - nt-mariadb-db
+
+  producto:
+    container_name: bd-producto
+    image: motorlink/microservice-docker-producto:0.0.1-SNAPSHOT   
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+    depends_on:
+      - mariadb
+    ports:
+      - 9091:9091
+    networks:
+      - nt-mariadb-db
+
+  usuario:
+    container_name: bd-usuario
+    image: motorlink/microservice-docker-usuario:0.0.1-SNAPSHOT   
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+    depends_on:
+      - mariadb
+    ports:
+      - 9092:9092
+    networks:
+      - nt-mariadb-db
+
+  venta:
+    container_name: bd-venta
+    image: motorlink/microservice-docker-venta:0.0.1-SNAPSHOT   
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+    depends_on:
+      - mariadb
+    ports:
+      - 9093:9093
+    networks:
+      - nt-mariadb-db
+
+  # Infra
+
+networks:
+  nt-mariadb-db:
+    driver: bridge
+
+volumes:
+  v-mariadb:
+
+  
+      
+
+
+    

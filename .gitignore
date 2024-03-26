@@ -1,0 +1,11 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Spring Boot default log directory
+logs/
+
+# IntelliJ IDEA project files
+.idea/

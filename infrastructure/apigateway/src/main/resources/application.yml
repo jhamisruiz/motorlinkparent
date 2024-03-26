@@ -1,0 +1,32 @@
+## YAML Template.
+---
+server:
+    port: 8090
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: cliente_service
+        uri: http://localhost:9090/cliente
+        predicates:
+          - Path=/cliente/**
+      - id: producto_service
+        uri: http://localhost:9091/producto
+        predicates:
+          - Path=/producto/**
+      - id: usuario_service
+        uri: http://localhost:9092/usuario
+        predicates:
+          - Path=/usuario/**
+      - id: venta_service
+        uri: http://localhost:9093/venta
+        predicates:
+          - Path=/venta/**
+#          - Query=id
+          
